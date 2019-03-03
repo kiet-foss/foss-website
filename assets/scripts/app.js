@@ -61,6 +61,10 @@ myApp.config(function ($routeProvider) {
       templateUrl: 'pages/event.html',
       controller: 'eventController'
     })
+    .when('/forum', {
+      templateUrl: 'pages/forum.html',
+      controller: 'forumController'
+    })
 
 });
 
@@ -76,4 +80,10 @@ myApp.controller('eventController', ['$scope', '$http', '$location', '$window', 
       opacity: "toggle"
     }, 300);
   });
+}]);
+myApp.controller('forumController', ['$scope', '$http', '$location', '$window', '$rootScope', '$route', 'fileUpload', '$q', function ($scope, $http, $location, $window, $rootScope, $route, fileUpload, $q) {
+  document.getElementById('forum_embed').src =
+  'https://groups.google.com/forum/embed/?place=forum/kiet-foss'
+  + '&showsearch=true&showpopout=true&showtabs=false'
+  + '&parenturl=' + encodeURIComponent(window.location.href);
 }]);
